@@ -1,0 +1,7 @@
+<div style="text-align:center">
+    <button *ngIf="!(news$ | async).loading" (click)="load()">Load News</button>
+    <loading-container [loadable]="news$ | async">
+        <p *ngFor="let item of (news$ | async).entities">{{item}}</p>
+    </loading-container>
+
+</div>
