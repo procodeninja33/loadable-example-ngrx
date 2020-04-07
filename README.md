@@ -2,9 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
 
-Here I am diffrentiat frontend and nodejs API. Inside the frontend folder angular cli project and inside lib backend nodejs api.
-run nodejs application using `node index.html` 
+Here I am differentiate frontend and lib folder. Inside the frontend folder angular cli project run and inside lib folder backend nodejs api.
+run nodejs application using `node index.js` 
 
+In this angular project I used ngrx to create one loadable example.
+- @ngrx/store
+- @ngrx/effetcs
 
 ## Development server
 
