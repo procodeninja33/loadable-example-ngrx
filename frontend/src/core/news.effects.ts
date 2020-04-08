@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { LoadNewsError, LoadNewsSuccess, NewsActionsTypes } from './news.actions';
 
-function mockApiResponse(): Observable<{ todaysNews: string[] }> {
-  return of({ todaysNews: ['news1', 'news2', 'news3', 'news4'] }).pipe(delay(1000));
-}
+// function mockApiResponse(): Observable<{ todaysNews: string[] }> {
+//   return of({ todaysNews: ['news1', 'news2', 'news3', 'news4'] }).pipe(delay(1000));
+// }
 
 @Injectable()
 export class NewsEffects {
@@ -19,8 +19,7 @@ export class NewsEffects {
   loadNews = this.actions$.pipe(
     ofType(NewsActionsTypes.Load),
     switchMap(action => {
-      // return this.http.get('some url');
-      // mockApiResponse()
+      // return mockApiResponse();
       return this.http.get('http://localhost:42000/get_latest_news').pipe(
         map((response: any) => new LoadNewsSuccess({ entities: response.todaysNews })),
         catchError(error => of(new LoadNewsError(error)))

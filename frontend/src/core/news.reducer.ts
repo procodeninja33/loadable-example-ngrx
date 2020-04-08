@@ -1,4 +1,3 @@
-// import { createDefaultLoadable, Loadable } from '../loadable/loadable';
 import { NewActionsUnion, NewsActionsTypes } from './news.actions';
 
 export interface News extends Loadable {
@@ -11,17 +10,11 @@ export interface Loadable {
   error: any;
 }
 
-export function createDefaultLoadable(): Loadable {
+export function createDefaultNews(): News {
   return {
     loading: false,
     success: false,
     error: null,
-  };
-}
-
-export function createDefaultNews(): News {
-  return {
-    ...createDefaultLoadable(),
     entities: []
   };
 }
@@ -29,30 +22,27 @@ export function createDefaultNews(): News {
 export function newsReducer(state = createDefaultNews(), action: NewActionsUnion): News {
   switch (action.type) {
     case NewsActionsTypes.Load:
-      let state1 = {
+      return {
         ...state,
         loading: true,
         success: false,
         error: null,
       }
-      return state1;
     case NewsActionsTypes.LoadSuccess:
-      let state2 = {
+      return {
         ...state,
         loading: false,
         success: true,
         error: null,
         entities: action.payload.entities
       }
-      return state2;
     case NewsActionsTypes.LoadError:
-      let state3 = {
+      return {
         ...state,
         loading: false,
         success: false,
         error: action.error,
       }
-      return state3;
     default:
       return state;
   }
