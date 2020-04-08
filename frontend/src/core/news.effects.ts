@@ -19,11 +19,12 @@ export class NewsEffects {
   loadNews = this.actions$.pipe(
     ofType(NewsActionsTypes.Load),
     switchMap(action => {
-      // return mockApiResponse();
-      return this.http.get('http://localhost:42000/get_latest_news').pipe(
-        map((response: any) => new LoadNewsSuccess({ entities: response.todaysNews })),
-        catchError(error => of(new LoadNewsError(error)))
-      );
+      // return mockApiResponse()
+      return this.http.get('http://localhost:42000/get_latest_news')
+        .pipe(
+          map((response: any) => new LoadNewsSuccess({ entities: response.todaysNews })),
+          catchError(error => of(new LoadNewsError(error)))
+        );
     }),
   );
 }
