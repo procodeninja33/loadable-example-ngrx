@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { News } from '../core/news';
+import { News } from '../core/news.reducer';
 import { LoadNews } from '../core/news.actions';
 
 @Component({

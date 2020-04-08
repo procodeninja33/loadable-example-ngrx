@@ -1,5 +1,5 @@
-import {Component, Input } from '@angular/core';
-import {Loadable} from '../../loadable/loadable';
+import { Component, Input } from '@angular/core';
+import { Loadable } from '../../core/news.reducer';
 
 @Component({
   selector: 'loading-container',
